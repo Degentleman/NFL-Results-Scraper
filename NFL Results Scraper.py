@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sun May 13 02:13:24 2018
+Created on Fri Apr 20 04:20:00 2018
 
 @author: Degentleman
 """
-
-#https://www.basketball-reference.com/players/j/jamesle01/gamelog/{year}/
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
