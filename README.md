@@ -4,7 +4,7 @@ This script allows you to scrape NFL Results from Pro Football Reference and con
 
 In order to scrape specific years, please specify the ranges within the file:
 
-for year in range(2012, 2018):
+"for year in range(2012, 2018):"
 
 Keep in mind this means that 2012–2017 will be included, but not 2018.
 
