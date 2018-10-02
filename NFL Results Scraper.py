@@ -6,8 +6,6 @@ Created on Sun May 13 02:13:24 2018
 @author: Degentleman
 """
 
-#https://www.basketball-reference.com/players/j/jamesle01/gamelog/{year}/
-
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -24,7 +22,7 @@ nfl_df = pd.DataFrame()
 
 # Iterate Player Data Frame for Each Year Specified
 
-for year in range(2018, 2019):
+for year in range(2012, 2019):
     
     url = url_template.format(year=year)  # get the url
     
@@ -45,14 +43,6 @@ for year in range(2018, 2019):
     year_df = year_df[(year_df.Date !='Playoffs') & (year_df.Week !='WildCard') & (year_df.Week != 'Week' )]
     
     year_df = year_df.infer_objects().drop(['index'],axis=1).reset_index(drop=True)
-    
-    '''
-    filename = 'NFL {year} Season Schedule.csv'.format(year=year)
-    
-    print(filename)
-    
-    #year_df.to_csv(filename)
-    '''
     
     results = year_df.loc[(year_df.iloc[:,8] != '')]
 
@@ -98,5 +88,3 @@ for year in range(2018, 2019):
     results_df.to_csv(filename)
 
     print(results_df)
-    
-val, cnt = np.unique(points_pf, return_counts=True)
