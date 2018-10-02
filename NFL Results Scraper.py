@@ -15,11 +15,6 @@ from scipy import stats
 # URL to Format
 url_template = "https://www.pro-football-reference.com/years/{year}/games.htm"
 
-# Create empty Data Frame for Player Data
-
-player_df = pd.DataFrame()
-nfl_df = pd.DataFrame()
-
 # Iterate Player Data Frame for Each Year Specified
 
 for year in range(2012, 2018):
@@ -38,6 +33,7 @@ for year in range(2012, 2018):
     for i in range(len(data_rows))]
     
     # Turn yearly data into a DataFrame
+    
     year_df = pd.DataFrame(player_data, columns=column_headers)
     
     year_df = year_df[(year_df.Date !='Playoffs') & (year_df.Week !='WildCard') & (year_df.Week != 'Week' )]
