@@ -17,6 +17,8 @@ url_template = "https://www.pro-football-reference.com/years/{year}/games.htm"
 
 # Iterate Player Data Frame for Each Year Specified
 
+nfl_df = pd.DataFrame()
+
 for year in range(2012, 2018):
     
     url = url_template.format(year=year)  # get the url
@@ -82,7 +84,11 @@ for year in range(2012, 2018):
     filename = 'NFL {year} Weekly Results.csv'.format(year=year)
     
     results_df.to_csv(filename)
+    
+    nfl_df = pd.concat([nfl_df,results_df],axis=0)
 
     print(filename+' has been saved.')
     
 print('All results from the specified timeframe have been saved.')
+
+nfl_df = nfl_df.reset_index(drop=True)
