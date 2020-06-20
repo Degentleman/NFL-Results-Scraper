@@ -40,7 +40,7 @@ for year in range(2012, 2018):
     
     year_df = year_df[(year_df.Date !='Playoffs') & (year_df.Week !='WildCard') & (year_df.Week != 'Week' )]
     
-    year_df = year_df.infer_objects().drop(['index'],axis=1).reset_index(drop=True)
+    year_df = year_df.infer_objects().reset_index(drop=True)
     
     results = year_df.loc[(year_df.iloc[:,8] != '')]
 
